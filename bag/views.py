@@ -29,7 +29,7 @@ def add_to_bag(request,  item_id):
             bag[item_id] = {'items_by_size': {size: quantity}}
     else:
         if item_id in list(bag.keys()):
-            bag[item_id] == quantity
+            bag[item_id] += quantity
         else:
             bag[item_id] = quantity
 
@@ -48,7 +48,7 @@ def adjust_bag(request,  item_id):
 
     if size:
         if quantity > 0:
-            bag[item_id]['items_by_size'] = quantity
+            bag[item_id]['items_by_size'][size] = quantity
         else:
             del bag[item_id]['items_by_size'][size]
     else:
