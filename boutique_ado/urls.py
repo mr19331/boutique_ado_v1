@@ -27,4 +27,9 @@ urlpatterns = [
     path('checkout/', include('checkout.urls')),
     path('profile/', include('profiles.urls')),
     path('blog/', include('blog.urls')),
+
+    # integrating the blog posts
+    path('posts/', include(('posts.urls', 'posts'), namespace='posts')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+

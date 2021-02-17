@@ -1,10 +1,13 @@
-from django.views.generic import ListView
-from . models import Post
+from django.shortcuts import render
+from django.views import generic
+from .models import Post
 
 
-class BlogListView(ListView):
-    model = Post
-    template_name = 'blog.html'
+def PostList(request):
+    """A view to return the Blog page"""
+
+    template = 'blog/blog.html'
+    return render(request, template)
 
 
 
